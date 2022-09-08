@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
 
   #give only routes needed
-  resources :articles, only: [:show, :index]
+  resources :articles, only: [:show, :index, :new, :create]
 end
