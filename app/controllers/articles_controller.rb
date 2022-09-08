@@ -9,9 +9,21 @@ class ArticlesController < ApplicationController
     end
 
     def new
+        #initiate @article variable
+        @article = Article.new
     end
 
     def create
-        render plain: params[:article]
+      #for testing:  render plain: params[:article]
+      @article = Article.new(params.require(:article).permit(:title, :description))
+    
+      #check if save happened
+      if
+      @article.save
+      flash[:notice] = "Article was created successfully"
+      redirect_to @article
+      else
+        render 'new'
     end
+end
 end
