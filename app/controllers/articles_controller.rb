@@ -17,10 +17,6 @@ class ArticlesController < ApplicationController
         @article = Article.find(params[:id])
     end
 
-   
-    def destroy
-    end
-
     def create
       #for testing:  render plain: params[:article]
       @article = Article.new(params.require(:article).permit(:title, :description))
@@ -46,6 +42,13 @@ def update
     else
     render 'edit'
     end
+    end
+
+    
+    def destroy
+        @article = Article.find(params[:id])
+        @article.destroy
+        redirect_to articles_path
     end
 
 end

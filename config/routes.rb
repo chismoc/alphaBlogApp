@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
 
   #give only routes needed
-  resources :articles, only: [:show, :index, :new, :create, :edit, :update]
+  #resources :articles, only: [:show, :index, :new, :create, :edit, :update]
+
+  #expose all the routes, Rest-ful routes
+  resources :articles
 end
