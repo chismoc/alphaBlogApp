@@ -1,9 +1,14 @@
 class ArticlesController < ApplicationController
-#retrive an article and srore in instance variable
+
+    #call set_article action before running these actions
+    before_action :set_article, only: [:show, :edit, :update, :destroy]
+
+    #retrive an article and srore in instance variable
     def show
-        @article = Article.find(params[:id])
+      #call set_article
     end
-#get all articles using .each
+
+    #get all articles using .each
     def index
         @articles = Article.all
     end
@@ -14,12 +19,12 @@ class ArticlesController < ApplicationController
     end
 
     def edit
-        @article = Article.find(params[:id])
+        #call set_article
     end
 
     def create
       #for testing:  render plain: params[:article]
-      @article = Article.new(params.require(:article).permit(:title, :description))
+      @article = Article.new(article_params)
     
       #check if save happened
       if
@@ -33,10 +38,10 @@ end
 
 def update
     #find article to edit
-    @article = Article.find(params[:id])
+    #call set_article
 
     if
-    @article.update(params.require(:article).permit(:title, :description))
+    @article.update(article_params)
     flash[:notice] = "Article was created successfully"
     redirect_to @article
     else
@@ -46,9 +51,19 @@ def update
 
     
     def destroy
-        @article = Article.find(params[:id])
+     #call set_article
         @article.destroy
         redirect_to articles_path
+    end
+
+    private
+
+    def set_article
+        @article = Article.find(params[:id])
+    end
+
+    def article_params
+        params.require(:article).permit(:title, :description)
     end
 
 end
