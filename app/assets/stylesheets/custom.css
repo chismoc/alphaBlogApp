@@ -1,0 +1,75 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+:root{
+    --yellow:#f9ca24;
+}
+.navbar{
+    background-color: black !important;
+   
+}
+.nav-link {
+    color:white !important;
+}
+#logo{
+    float: left;
+    font-size: 1.7em;
+    color:#fff;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+#logo span{
+    color: var(--yellow);
+}
+#home-container{
+    margin-top: 25px;
+}
+.jumbotron{
+    background-image: url('/assets/jumbo1.jpg');
+    background-position: center  center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    height: 430px;
+}
+
+.jumbotron span{
+    color: var(--yellow);
+    font-weight: 700;
+}
+
+.custombtn{
+          
+        background: #333;
+        color: #fff;
+        cursor: pointer;
+     padding:0.5rem;
+        font-size: 1.4em;
+        border-radius: 0.5em;
+    }
+    .custombtn:hover{
+        background: var(--yellow);
+    }
+
+
+
+
+
+
+    html,
+    body {
+      height: 100%;
+    }
+    
+    #page-content {
+      flex: 1 0 auto;
+      background-color: lightgray;
+
+        }
+        #sticky-footer{
+            flex-shrink: none;
+        }
+    
+    

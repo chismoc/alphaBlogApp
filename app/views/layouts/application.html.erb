@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AlphaBlogApp</title>
+    <title>IMCBlogApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,10 +11,13 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "custom", media: 'all', 'data-turbolinks-track' => true %>
   
   </head>
 
-  <body>
+  <body class="d-flex flex-column">
+  <%= render 'layouts/navigation' %>
     <%= render 'layouts/messages' %>
     <%= yield %>
   </body>
