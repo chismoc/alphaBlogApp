@@ -13,6 +13,9 @@
 .nav-link {
     color:white !important;
 }
+h1 span{
+    color: var(--yellow);
+}
 #logo{
     float: left;
     font-size: 1.7em;
