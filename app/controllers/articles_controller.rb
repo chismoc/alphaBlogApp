@@ -25,6 +25,7 @@ class ArticlesController < ApplicationController
     def create
       #for testing:  render plain: params[:article]
       @article = Article.new(article_params)
+      @article.user = User.first
     
       #check if save happened
       if
