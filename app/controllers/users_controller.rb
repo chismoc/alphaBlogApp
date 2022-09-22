@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user = User.find(params[:id])
   end
 
   # POST /users or /users.json
@@ -32,16 +33,24 @@ class UsersController < ApplicationController
       end
     end
 
+     # PATCH/PUT /users/1 or /users/1.json
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+     flash[:notice] = "account successfully updated"
+     redirect_to articles_path
+    else
+     render 'edit'
+    end
+   end
+
     private 
     def user_params
     params.require(:user).permit(:username, :email, :password)
     end
   
 
-  # PATCH/PUT /users/1 or /users/1.json
-  def update
-   
-  end
+ 
 
   # DELETE /users/1 or /users/1.json
   def destroy
