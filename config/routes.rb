@@ -14,4 +14,8 @@ Rails.application.routes.draw do
   #expose all the routes, Rest-ful routes
   resources :articles
   resources :users, except:[:new]
+
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout',to: 'sessions#destroy'
 end
