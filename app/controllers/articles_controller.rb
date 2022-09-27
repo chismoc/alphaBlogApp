@@ -2,7 +2,8 @@ class ArticlesController < ApplicationController
 
     #call set_article action before running these actions
     before_action :set_article, only: [:show, :edit, :update, :destroy]
-
+    before_action :require_user, except: [:show, :index]
+    before_action :require_same_user, only: [:edit, :update, :destroy]
     #retrive an article and srore in instance variable
     def show
       #call set_article
@@ -67,5 +68,11 @@ def update
         params.require(:article).permit(:title, :description)
     end
 
+    def require_same_user
+        if current_user != @article.user
+            flash[:alert] = "You can only edit or delete your own article"
+           redirect_to @article
+        end 
+    end
 end
 
