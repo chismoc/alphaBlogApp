@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :set_user, only: [ :show, :edit, :update]
 
   # GET /users or /users.json
   def index
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
-   @user = User.find(params[:id])
+  
    @articles = @user.articles.paginate(page: params[:page], per_page: 5)
   end
 
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
+  
   end
 
   # POST /users or /users.json
@@ -27,6 +27,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+        session[:user_id] = @user.id
         flash[:notice] = "welcome to IMC Blog #{@user.username}, you have successfuly signed up"
         redirect_to articles_path
       
@@ -37,7 +38,7 @@ class UsersController < ApplicationController
 
      # PATCH/PUT /users/1 or /users/1.json
   def update
-    @user = User.find(params[:id])
+   
     if @user.update(user_params)
      flash[:notice] = "account successfully updated"
      redirect_to @user
@@ -51,16 +52,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :email, :password)
     end
   
-
- 
-
-  # DELETE /users/1 or /users/1.json
-  def destroy
-   
-  end
-
-  private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
+      @user = User.find(params[:id])
     end
 end
