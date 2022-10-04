@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/ffi/ffi.git
+  revision: e6311548e4dce7c98a54d6ab0f996e95dc413b07
+  submodules: true
+  specs:
+    ffi (1.15.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -224,6 +231,7 @@ DEPENDENCIES
   capybara
   cssbundling-rails
   debug
+  ffi!
   jbuilder
   jsbundling-rails
   puma (~> 5.0)
