@@ -22,11 +22,20 @@
     <%= f.text_area :description,rows:  10,  class: "form-control shadow-rounded", placeholder: "Description of article" %>
     </div>
     </div>
+
+    <div class="form-group row mt-2 "> 
+    <%= f.label :category , class: "col-3 col-form-label text-white" %><br/>
+    <div class="col-9">
+    <%= f.collection_select(:category_ids, Category.all, :id, :name,
+    { prompt: "Select category from list below (can't be empty)"}, { multiple: true, size: 3, class: "custom-select shadow-rounded col-12"}) %>
+ 
+    </div>
+    </div>
     
     <div class="input-group justify-content-center mb-3 mt-4"> 
     <%= f.submit  class: "btn btn-outline-warning btn-lg text-white " %>
     </div>
-<div class = "d-flex justify-content-center mb-3">
+    <div class = "d-flex justify-content-center mb-3">
     <%= link_to '[Cancel and Return to articles listing]', articles_path, class: "text-warning" %>
     
     <% end %>
