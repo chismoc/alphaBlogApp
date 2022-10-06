@@ -1,4 +1,4 @@
-<h1 class = "text-center mt-4 text-white"><span>Create a </span> new <span>Category</span></h1>
+<h1 class = "text-center mt-4 text-white"><span>Edit Category Name</span></h1>
 
 <div class = "container">
 
@@ -7,7 +7,7 @@
 <div class = "col-10">
 <%= render 'form' %>
 <div class = "d-flex justify-content-center mb-3">
-    <%= link_to '[Cancel and Return to catgories listing]', categories_path, class: "text-warning" %>
+    <%= link_to '[Cancel and Return to category]', category_path(@category), class: "text-warning" %>
    </div>
    
     </div>
