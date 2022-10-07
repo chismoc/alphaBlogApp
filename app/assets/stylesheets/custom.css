@@ -62,13 +62,31 @@ h1 span{
     html,
     body {
       height: 100%;
+     
     }
+    .card-header{
+      font-style: italic;
+    }
+    
+    a:link { 
+      text-decoration:none; 
+  }
     
     #page-content {
       flex: 1 0 auto;
       background-color: #1a1a1a;;
 
         }
+
+       #articlebutton{
+        float: left;
+        margin-right: 2px;
+        
+       }
+
+       #deletebtn{
+      float: left;
+       }
         #sticky-footer{
             flex-shrink: none;
         }
